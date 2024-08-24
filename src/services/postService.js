@@ -6,4 +6,4 @@ const api = axios.create({
 
 const getPosts = () => api.get("/posts");
 
-export default { getPosts };
+export default getPosts;
