@@ -16,7 +16,7 @@ export default function Posts() {
   }, []);
   const handleDelete = (id) => {
     deletePost(id)
-      .then((response) => {
+      .then(() => {
         const newPosts = posts.filter((post) => post.id !== id);
         setPosts(newPosts);
       })
