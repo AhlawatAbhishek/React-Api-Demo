@@ -12,7 +12,9 @@ export default function PostForm({ posts, setPosts }) {
   };
   const addPost = () => {
     createPost({ title, body })
-      .then(() => {})
+      .then((response) => {
+        setPosts([...posts, response.data]);
+      })
       .catch((error) => {
         console.error(error);
       });

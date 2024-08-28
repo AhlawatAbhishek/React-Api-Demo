@@ -3,6 +3,7 @@ import { getPosts, deletePost } from "../services/postService";
 import PostFrom from "./PostForm";
 export default function Posts() {
   const [posts, setPosts] = useState([]);
+  const [editingPost, setEditingPost] = useState(null);
   useEffect(() => {
     getPosts()
       .then((response) => {
@@ -38,7 +39,6 @@ export default function Posts() {
             </li>
           );
         })}
-        <li></li>
       </ul>
     </div>
   );
