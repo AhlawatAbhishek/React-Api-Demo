@@ -25,10 +25,20 @@ export default function Posts() {
         console.error(error);
       });
   };
+
+  const startEditing = (post) => {
+    setEditingPost(post);
+  };
+
   return (
     <div>
       <h1>Posts</h1>
-      <PostFrom posts={posts} setPosts={setPosts} />
+      <PostFrom
+        posts={posts}
+        setPosts={setPosts}
+        editingPost={editingPost}
+        setEditingPost={setEditingPost}
+      />
       <ul>
         {posts.map((post) => {
           return (
@@ -36,6 +46,7 @@ export default function Posts() {
               <h2>{post.title}</h2>
               <p>{post.body}</p>
               <button onClick={() => handleDelete(post.id)}>Delete</button>
+              <button onClick={() => startEditing(post)}>Edit</button>
             </li>
           );
         })}
